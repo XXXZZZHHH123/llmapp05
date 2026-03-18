@@ -6,6 +6,8 @@ import pytest
 from deepeval.metrics import GEval
 from deepeval.test_case import LLMTestCaseParams
 
+from judge import get_judge_model
+
 
 # ---------------------------------------------------------------------------
 # Reusable GEval metric factories
@@ -25,6 +27,7 @@ def json_schema_metric(schema_description: str):
             LLMTestCaseParams.ACTUAL_OUTPUT,
         ],
         threshold=0.5,
+        model=get_judge_model(),
     )
 
 
@@ -42,6 +45,7 @@ def output_correctness_metric():
             LLMTestCaseParams.ACTUAL_OUTPUT,
         ],
         threshold=0.5,
+        model=get_judge_model(),
     )
 
 
@@ -64,4 +68,5 @@ def answer_relevancy_metric():
             LLMTestCaseParams.ACTUAL_OUTPUT,
         ],
         threshold=0.5,
+        model=get_judge_model(),
     )

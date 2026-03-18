@@ -18,7 +18,9 @@ on:
 env:
   OLLAMA_API_KEY: ${{ secrets.OLLAMA_API_KEY }}
   OLLAMA_BASE_URL: ${{ secrets.OLLAMA_BASE_URL }}
-  OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+  JUDGE_API_KEY: ${{ secrets.SILICONFLOW_API_KEY }}
+  JUDGE_BASE_URL: ${{ secrets.SILICONFLOW_BASE_URL }}
+  JUDGE_MODEL: ${{ secrets.SILICONFLOW_JUDGE_MODEL }}
 
 jobs:
   deepeval:

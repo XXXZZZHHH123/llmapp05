@@ -21,7 +21,8 @@
   - Jobs: Single job that installs Python deps, starts the backend via docker compose, waits for health, runs all 4 DeepEval test suites, then tears down
   - Pipeline: LLM evaluation pipeline using Python 3.12 + DeepEval
   judge model
-  - Required secrets: OLLAMA_API_KEY, OLLAMA_BASE_URL, OPENAI_API_KEY
+  - Required secrets: OLLAMA_API_KEY, OLLAMA_BASE_URL, SILICONFLOW_API_KEY
+  Optional secrets: SILICONFLOW_BASE_URL, SILICONFLOW_JUDGE_MODEL
   Required GitHub Repository Secrets
   You'll need to add these secrets in your repo settings (Settings >
   Secrets and variables > Actions):
@@ -33,9 +34,17 @@
   Used By: promptfoo, deepeval
   Purpose: Ollama cloud endpoint URL
   ────────────────────────────────────────
-  Secret: OPENAI_API_KEY
+  Secret: SILICONFLOW_API_KEY
   Used By: deepeval only
   Purpose: DeepEval's judge LLM for evaluation metrics
+  ────────────────────────────────────────
+  Secret: SILICONFLOW_BASE_URL
+  Used By: deepeval only
+  Purpose: Override SiliconFlow-compatible base URL if needed
+  ────────────────────────────────────────
+  Secret: SILICONFLOW_JUDGE_MODEL
+  Used By: deepeval only
+  Purpose: Override the judge model name used by DeepEval
 
 ## Updated pipeline stages
 

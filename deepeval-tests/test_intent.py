@@ -14,6 +14,7 @@ from deepeval.dataset import EvaluationDataset
 
 from api_client import detect_intent
 from conftest import json_schema_metric, output_correctness_metric, answer_relevancy_metric
+from judge import get_judge_model
 
 
 # ---------------------------------------------------------------------------
@@ -135,6 +136,7 @@ intent_category_metric = GEval(
         LLMTestCaseParams.EXPECTED_OUTPUT,
     ],
     threshold=0.5,
+    model=get_judge_model(),
 )
 
 intent_primary_metric = GEval(
@@ -151,6 +153,7 @@ intent_primary_metric = GEval(
         LLMTestCaseParams.EXPECTED_OUTPUT,
     ],
     threshold=0.5,
+    model=get_judge_model(),
 )
 
 intent_relevancy_metric = answer_relevancy_metric()

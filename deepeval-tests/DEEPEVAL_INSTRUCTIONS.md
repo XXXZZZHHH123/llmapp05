@@ -49,8 +49,10 @@
   # 1. Install dependencies
   pip install -r requirements.txt
 
-  # 2. Set OpenAI API key (used as the evaluation judge LLM)
-  export OPENAI_API_KEY="your-openai-api-key"
+  # 2. Set SiliconFlow judge credentials
+  export JUDGE_API_KEY="your-siliconflow-api-key"
+  export JUDGE_BASE_URL="https://api.siliconflow.cn/v1"
+  export JUDGE_MODEL="Qwen/Qwen2.5-72B-Instruct"
 
   # 3. Make sure the Spring Boot app is running on localhost:8080
 
@@ -68,4 +70,5 @@
   # Verbose output
   deepeval test run test_classify.py -v
 
-  The tests call each endpoint live on localhost:8080, then use OpenAI (as the judge LLM) to evaluate whether the responses are correct, relevant, properly structured, and free of hallucinations.
+  The tests call each endpoint live on localhost:8080, then use a configurable
+  OpenAI-compatible judge LLM. By default this repo is wired for SiliconFlow.
